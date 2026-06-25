@@ -7,7 +7,7 @@ function Logo({ dark = false }) {
     <a href="#home" className="flex items-center gap-3">
       <span
         className={`flex h-11 w-11 items-center justify-center rounded-xl font-serif text-lg font-bold ${
-          dark ? 'bg-olive-700 text-gold-500' : 'bg-cream text-olive-700'
+          dark ? 'bg-wine-700 text-gold-500' : 'bg-cream text-wine-700'
         }`}
       >
         DNA
@@ -61,7 +61,7 @@ export default function Header() {
       <div className="container-page flex h-20 items-center justify-between">
         <Logo dark={scrolled || open} />
 
-        <nav className="hidden items-center gap-8 lg:flex">
+        <nav className="hidden items-center gap-6 lg:flex xl:gap-8">
           {navLinks.map((link) => (
             <a
               key={link.href}
@@ -105,7 +105,7 @@ export default function Header() {
               key={link.href}
               href={link.href}
               onClick={() => setOpen(false)}
-              className="rounded-lg px-3 py-3 text-base font-medium text-ink transition hover:bg-olive-50 hover:text-olive-700"
+              className="rounded-lg px-3 py-3 text-base font-medium text-ink transition hover:bg-wine-50 hover:text-wine-700"
             >
               {link.label}
             </a>

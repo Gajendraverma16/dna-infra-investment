@@ -21,11 +21,11 @@
 
 @layer components {
   .container-page {
-    @apply mx-auto w-full max-w-[1200px] px-5 sm:px-8;
+    @apply mx-auto w-full max-w-[1200px] px-4 sm:px-8;
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full bg-olive-700 px-7 py-3 text-sm font-semibold tracking-wide text-cream transition hover:bg-olive-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-olive-400 focus-visible:ring-offset-2;
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-wine-700 px-7 py-3 text-sm font-semibold tracking-wide text-cream transition hover:bg-wine-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-wine-400 focus-visible:ring-offset-2;
   }
 
   .btn-outline {
@@ -38,6 +38,6 @@
 }
 
 ::selection {
-  background-color: #465227;
-  color: #fbf9f4;
+  background-color: #7e253a;
+  color: #ffffff;
 }

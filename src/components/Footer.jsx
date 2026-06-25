@@ -5,13 +5,15 @@ export default function Footer() {
 
   return (
     <footer className="bg-ink text-cream/80">
-      <div className="container-page grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
-        <div>
+      <div className="container-page grid grid-cols-1 gap-8 py-12 sm:grid-cols-2 sm:gap-10 sm:py-14 lg:grid-cols-4">
+
+        {/* Brand */}
+        <div className="sm:col-span-2 lg:col-span-1">
           <div className="flex items-center gap-3">
-            <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-olive-700 font-serif text-lg font-bold text-gold-500">
+            <span className="flex h-11 w-11 flex-none items-center justify-center rounded-xl bg-wine-700 font-serif text-lg font-bold text-gold-500">
               DNA
             </span>
-            <span className="font-serif text-base font-semibold text-cream">
+            <span className="font-serif text-base font-semibold leading-tight text-cream">
               DNA Infra &amp; Investment
             </span>
           </div>
@@ -21,6 +23,7 @@ export default function Footer() {
           </p>
         </div>
 
+        {/* Quick Links */}
         <div>
           <h4 className="text-sm font-semibold uppercase tracking-wider text-gold-400">
             Quick Links
@@ -39,6 +42,7 @@ export default function Footer() {
           </ul>
         </div>
 
+        {/* Services */}
         <div>
           <h4 className="text-sm font-semibold uppercase tracking-wider text-gold-400">
             Services
@@ -52,6 +56,7 @@ export default function Footer() {
           </ul>
         </div>
 
+        {/* Contact */}
         <div>
           <h4 className="text-sm font-semibold uppercase tracking-wider text-gold-400">
             Contact
@@ -69,7 +74,7 @@ export default function Footer() {
             <li>
               <a
                 href={`mailto:${site.email}`}
-                className="transition hover:text-gold-400"
+                className="break-all transition hover:text-gold-400"
               >
                 {site.email}
               </a>
@@ -79,10 +84,8 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-cream/10">
-        <div className="container-page flex flex-col items-center justify-between gap-3 py-6 text-xs text-cream/50 sm:flex-row">
-          <p>
-            © {year} {site.name}. All rights reserved.
-          </p>
+        <div className="container-page flex flex-col items-center justify-between gap-2 py-5 text-center text-xs text-cream/50 sm:flex-row sm:gap-3 sm:py-6 sm:text-left">
+          <p>© {year} {site.name}. All rights reserved.</p>
           <p>
             Developed by{' '}
             <span className="text-gold-400">DNA Infra &amp; Investment</span>

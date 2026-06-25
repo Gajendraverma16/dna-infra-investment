@@ -40,8 +40,8 @@ export default {
           500: '#c8a04b',
           600: '#a9842f',
         },
-        cream: '#fbf9f4',
-        ink: '#1f2419',
+        cream: '#ffffff',
+        ink: '#1a1a1a',
       },
       fontFamily: {
         serif: ['"Playfair Display"', 'Georgia', 'serif'],

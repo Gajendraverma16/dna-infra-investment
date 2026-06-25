@@ -22,36 +22,38 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="bg-olive-900 py-20 text-cream sm:py-28">
-      <div className="container-page grid gap-12 lg:grid-cols-2 lg:gap-16">
+    <section id="contact" className="bg-ink py-16 text-cream sm:py-24 lg:py-28">
+      <div className="container-page grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-16">
+
+        {/* Left — info */}
         <div>
           <span className="section-eyebrow text-gold-400">
             <span className="h-px w-8 bg-gold-400" />
             Get in touch
           </span>
-          <h2 className="mt-4 font-serif text-3xl font-bold sm:text-4xl">
+          <h2 className="mt-4 font-serif text-2xl font-bold sm:text-3xl lg:text-4xl">
             Let&apos;s build your next investment
           </h2>
-          <p className="mt-4 max-w-md text-cream/75">
+          <p className="mt-3 text-sm text-cream/75 sm:mt-4 sm:max-w-md sm:text-base">
             Looking to buy, sell or invest? Share your requirement and our team
             will reach out with the right opportunities for you.
           </p>
 
-          <div className="mt-10 space-y-5">
+          <div className="mt-8 space-y-4 sm:mt-10 sm:space-y-5">
             {contactItems.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
-                className="flex items-center gap-4 rounded-2xl border border-cream/10 bg-olive-800/50 p-4 transition hover:border-gold-500/60"
+                className="flex items-center gap-4 rounded-2xl border border-cream/10 bg-white/5 p-4 transition hover:border-gold-500/60"
               >
-                <span className="flex h-12 w-12 flex-none items-center justify-center rounded-xl bg-gold-500/15 text-gold-400">
-                  <Icon name={item.icon} className="h-6 w-6" />
+                <span className="flex h-11 w-11 flex-none items-center justify-center rounded-xl bg-gold-500/15 text-gold-400 sm:h-12 sm:w-12">
+                  <Icon name={item.icon} className="h-5 w-5 sm:h-6 sm:w-6" />
                 </span>
-                <span>
+                <span className="min-w-0">
                   <span className="block text-xs uppercase tracking-wider text-cream/60">
                     {item.label}
                   </span>
-                  <span className="block font-medium text-cream">
+                  <span className="block truncate text-sm font-medium text-cream sm:text-base">
                     {item.value}
                   </span>
                 </span>
@@ -60,23 +62,24 @@ export default function Contact() {
           </div>
         </div>
 
+        {/* Right — form */}
         <form
           onSubmit={handleSubmit}
-          className="rounded-3xl bg-cream p-7 text-ink shadow-soft sm:p-9"
+          className="rounded-2xl bg-cream p-5 text-ink shadow-soft sm:rounded-3xl sm:p-7 lg:p-9"
         >
-          <h3 className="font-serif text-xl font-semibold text-ink">
+          <h3 className="font-serif text-lg font-semibold text-ink sm:text-xl">
             Request a callback
           </h3>
 
           {sent && (
-            <p className="mt-4 flex items-center gap-2 rounded-xl bg-olive-100 px-4 py-3 text-sm font-medium text-olive-700">
-              <Icon name="check" className="h-5 w-5" />
+            <p className="mt-4 flex items-center gap-2 rounded-xl bg-wine-100 px-4 py-3 text-sm font-medium text-wine-700">
+              <Icon name="check" className="h-5 w-5 flex-none" />
               Thank you! We&apos;ll get back to you shortly.
             </p>
           )}
 
           <div className="mt-5 space-y-4">
-            <div className="grid gap-4 sm:grid-cols-2">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <Field
                 label="Full name"
                 value={form.name}
@@ -107,7 +110,7 @@ export default function Contact() {
                 value={form.message}
                 onChange={update('message')}
                 required
-                className="w-full rounded-xl border border-ink/15 bg-white px-4 py-3 text-sm outline-none transition focus:border-olive-500 focus:ring-2 focus:ring-olive-200"
+                className="w-full rounded-xl border border-ink/15 bg-white px-4 py-3 text-sm outline-none transition focus:border-wine-500 focus:ring-2 focus:ring-wine-200"
                 placeholder="Tell us what you are looking for…"
               />
             </label>
@@ -117,6 +120,7 @@ export default function Contact() {
             </button>
           </div>
         </form>
+
       </div>
     </section>
   )
@@ -133,7 +137,7 @@ function Field({ label, type = 'text', value, onChange, required }) {
         value={value}
         onChange={onChange}
         required={required}
-        className="w-full rounded-xl border border-ink/15 bg-white px-4 py-3 text-sm outline-none transition focus:border-olive-500 focus:ring-2 focus:ring-olive-200"
+        className="w-full rounded-xl border border-ink/15 bg-white px-4 py-3 text-sm outline-none transition focus:border-wine-500 focus:ring-2 focus:ring-wine-200"
       />
     </label>
   )
