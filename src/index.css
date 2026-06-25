@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cream text-ink font-sans antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-serif;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-[1200px] px-5 sm:px-8;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-olive-700 px-7 py-3 text-sm font-semibold tracking-wide text-cream transition hover:bg-olive-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-olive-400 focus-visible:ring-offset-2;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-wine-700 px-7 py-3 text-sm font-semibold tracking-wide text-wine-700 transition hover:bg-wine-700 hover:text-cream focus:outline-none focus-visible:ring-2 focus-visible:ring-wine-400 focus-visible:ring-offset-2;
+  }
+
+  .section-eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-wine-700;
+  }
+}
+
+::selection {
+  background-color: #465227;
+  color: #fbf9f4;
+}
