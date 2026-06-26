@@ -1,11 +1,27 @@
+import { motion } from 'framer-motion'
 import { services } from '../data/content'
 import Icon from './Icon'
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, delay: i * 0.07, ease: 'easeOut' },
+  }),
+}
 
 export default function Services() {
   return (
     <section id="services" className="bg-ink py-16 text-cream sm:py-24 lg:py-28">
       <div className="container-page">
-        <div className="mx-auto max-w-2xl text-center">
+        <motion.div
+          className="mx-auto max-w-2xl text-center"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6 }}
+        >
           <span className="section-eyebrow text-gold-400">
             <span className="h-px w-8 bg-gold-400" />
             What we do
@@ -18,13 +34,19 @@ export default function Services() {
             One partner for every property and investment need — from your first
             plot to large-scale developments.
           </p>
-        </div>
+        </motion.div>
 
         <div className="mt-10 grid grid-cols-1 gap-4 sm:mt-14 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
-          {services.map((service) => (
-            <article
+          {services.map((service, i) => (
+            <motion.article
               key={service.title}
-              className="group rounded-2xl border border-cream/10 bg-white/5 p-5 transition duration-300 hover:-translate-y-1 hover:border-gold-500/60 hover:bg-white/10 sm:p-6"
+              custom={i}
+              variants={cardVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.1 }}
+              whileHover={{ y: -6, transition: { duration: 0.25 } }}
+              className="group rounded-2xl border border-cream/10 bg-white/5 p-5 transition duration-300 hover:border-gold-500/60 hover:bg-white/10 sm:p-6"
             >
               <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-gold-500/15 text-gold-400 transition group-hover:bg-gold-500 group-hover:text-ink sm:h-12 sm:w-12">
                 <Icon name={service.icon} className="h-5 w-5 sm:h-6 sm:w-6" />
@@ -35,7 +57,7 @@ export default function Services() {
               <p className="mt-2 text-sm leading-relaxed text-cream/70">
                 {service.description}
               </p>
-            </article>
+            </motion.article>
           ))}
         </div>
       </div>

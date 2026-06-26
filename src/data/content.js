@@ -6,10 +6,34 @@ export const site = {
   shortName: 'DNA',
   tagline: 'Building landmarks. Growing investments.',
   domain: 'dnainfrainvestment.com',
-  email: 'info@dnainfrainvestment.com',
-  phone: '+91 98765 43210',
-  address: 'Bhopal, Madhya Pradesh, India',
+  email: 'dnafinserv252@gmail.com',
+  phone: '+91 99262 66888',
+  whatsapp: '919926266888',
+  address: 'M-3 Shagun Tower, Vijay Nagar, Indore (M.P.)',
 }
+
+export const social = [
+  {
+    label: 'Facebook',
+    href: 'https://www.facebook.com/share/1Bn6MAK3Do/',
+    icon: 'facebook',
+  },
+  {
+    label: 'Instagram',
+    href: 'https://www.instagram.com/dna_finserv?igsh=MXFsdHNuMGpyOWsycQ==',
+    icon: 'instagram',
+  },
+  {
+    label: 'WhatsApp',
+    href: 'https://wa.me/919926266888',
+    icon: 'whatsapp',
+  },
+  {
+    label: 'LinkedIn',
+    href: 'https://in.linkedin.com/company/hiranandani-group-of-companies',
+    icon: 'linkedin',
+  },
+]
 
 export const navLinks = [
   { label: 'Home', href: '#home' },
@@ -24,8 +48,8 @@ export const navLinks = [
 export const stats = [
   { value: '12+', label: 'Years of expertise' },
   { value: '150+', label: 'Projects delivered' },
-  { value: '₹500Cr+', label: 'Assets managed' },
-  { value: '1000+', label: 'Happy investors' },
+  { value: '500Cr+', label: 'Assets managed' },
+  { value: '2500+', label: 'Happy clients' },
 ]
 
 export const services = [
@@ -120,41 +144,41 @@ export const projects = [
 
 export const team = [
   {
-    name: 'Mr. Dharmendra Lodhi',
-    role: 'Founder & Director',
-    bio: 'Drives DNA Infra’s vision across real estate development, land acquisition and large-scale projects.',
-    image:
-      'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80',
+    name: 'Dhammendra Holkar',
+    role: 'Founder & CEO',
+    bio: 'Founder & CEO of DNA Infra & Investment. With expertise in property development, project finance and investment planning, Dhammendra helps individuals and businesses achieve their real estate goals through transparent, reliable and customer-focused solutions.',
+    image: '/founder.jpeg',
+    objectPosition: 'center 20%',
   },
   {
-    name: 'Mr. Vijay Malviya',
-    role: 'Co-Founder & Investment Head',
-    bio: 'Leads investment strategy, project funding and investor relations with a focus on trusted returns.',
-    image:
-      'https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&fit=crop&w=600&q=80',
+    name: 'Vijay Malviya',
+    role: 'Co-Founder',
+    bio: 'Co-Founder of DNA Infra & Investment. With a strong understanding of the real estate and investment sector, Vijay drives strategic planning, business development and client-focused leadership — committed to delivering transparent, reliable investment opportunities.',
+    image: '/cofunder.png',
+    objectPosition: 'center top',
   },
 ]
 
 export const reviews = [
   {
-    name: 'Rajesh Sharma',
-    role: 'Investor, Bhopal',
+    name: 'Manjeet Singh',
+    role: 'Business Owner, Indore',
     quote:
-      'DNA Infra made my first real estate investment effortless. Transparent process and excellent returns.',
+      'DNA Infra helped me find the perfect commercial plot. The process was smooth, transparent and professionally handled from start to finish.',
     rating: 5,
   },
   {
-    name: 'Priya Verma',
+    name: 'Riya Bhatiya',
     role: 'Home Buyer',
     quote:
-      'We bought our plot through DNA and the whole experience was smooth, honest and professional.',
+      'Excellent guidance at every step. The team explained our options clearly and helped us find the most suitable property within our budget.',
     rating: 5,
   },
   {
-    name: 'Amit Patel',
-    role: 'Business Partner',
+    name: 'Dr. Vinod Sharma',
+    role: 'Investor, Indore',
     quote:
-      'Their project funding support helped us scale fast. A reliable partner for serious developers.',
+      'Very professional service. Documentation was handled efficiently and the entire investment process saved me significant time and effort.',
     rating: 5,
   },
 ]

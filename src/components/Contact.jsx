@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { motion } from 'framer-motion'
 import { site } from '../data/content'
 import Icon from './Icon'
 
@@ -7,6 +8,15 @@ const contactItems = [
   { icon: 'mail', label: 'Email us', value: site.email, href: `mailto:${site.email}` },
   { icon: 'pin', label: 'Visit us', value: site.address, href: '#' },
 ]
+
+const itemVariants = {
+  hidden: { opacity: 0, x: -24 },
+  visible: (i) => ({
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.5, delay: i * 0.1, ease: 'easeOut' },
+  }),
+}
 
 export default function Contact() {
   const [sent, setSent] = useState(false)
@@ -26,7 +36,12 @@ export default function Contact() {
       <div className="container-page grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-16">
 
         {/* Left — info */}
-        <div>
+        <motion.div
+          initial={{ opacity: 0, x: -40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.7, ease: 'easeOut' }}
+        >
           <span className="section-eyebrow text-gold-400">
             <span className="h-px w-8 bg-gold-400" />
             Get in touch
@@ -40,10 +55,17 @@ export default function Contact() {
           </p>
 
           <div className="mt-8 space-y-4 sm:mt-10 sm:space-y-5">
-            {contactItems.map((item) => (
-              <a
+            {contactItems.map((item, i) => (
+              <motion.a
                 key={item.label}
                 href={item.href}
+                custom={i}
+                variants={itemVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                whileHover={{ x: 6 }}
+                transition={{ type: 'spring', stiffness: 250 }}
                 className="flex items-center gap-4 rounded-2xl border border-cream/10 bg-white/5 p-4 transition hover:border-gold-500/60"
               >
                 <span className="flex h-11 w-11 flex-none items-center justify-center rounded-xl bg-gold-500/15 text-gold-400 sm:h-12 sm:w-12">
@@ -57,50 +79,41 @@ export default function Contact() {
                     {item.value}
                   </span>
                 </span>
-              </a>
+              </motion.a>
             ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* Right — form */}
-        <form
+        <motion.form
           onSubmit={handleSubmit}
           className="rounded-2xl bg-cream p-5 text-ink shadow-soft sm:rounded-3xl sm:p-7 lg:p-9"
+          initial={{ opacity: 0, x: 40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.7, ease: 'easeOut' }}
         >
           <h3 className="font-serif text-lg font-semibold text-ink sm:text-xl">
             Request a callback
           </h3>
 
           {sent && (
-            <p className="mt-4 flex items-center gap-2 rounded-xl bg-wine-100 px-4 py-3 text-sm font-medium text-wine-700">
+            <motion.p
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="mt-4 flex items-center gap-2 rounded-xl bg-wine-100 px-4 py-3 text-sm font-medium text-wine-700"
+            >
               <Icon name="check" className="h-5 w-5 flex-none" />
               Thank you! We&apos;ll get back to you shortly.
-            </p>
+            </motion.p>
           )}
 
           <div className="mt-5 space-y-4">
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-              <Field
-                label="Full name"
-                value={form.name}
-                onChange={update('name')}
-                required
-              />
-              <Field
-                label="Phone"
-                type="tel"
-                value={form.phone}
-                onChange={update('phone')}
-                required
-              />
+              <Field label="Full name" value={form.name} onChange={update('name')} required />
+              <Field label="Phone" type="tel" value={form.phone} onChange={update('phone')} required />
             </div>
-            <Field
-              label="Email"
-              type="email"
-              value={form.email}
-              onChange={update('email')}
-              required
-            />
+            <Field label="Email" type="email" value={form.email} onChange={update('email')} required />
             <label className="block">
               <span className="mb-1.5 block text-sm font-medium text-ink/70">
                 Your requirement
@@ -114,12 +127,17 @@ export default function Contact() {
                 placeholder="Tell us what you are looking for…"
               />
             </label>
-            <button type="submit" className="btn-primary w-full">
+            <motion.button
+              type="submit"
+              className="btn-primary w-full"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
               Send message
               <Icon name="arrow" className="h-4 w-4" />
-            </button>
+            </motion.button>
           </div>
-        </form>
+        </motion.form>
 
       </div>
     </section>

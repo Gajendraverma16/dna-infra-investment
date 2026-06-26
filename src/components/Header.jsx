@@ -7,7 +7,7 @@ function Logo({ dark = false }) {
     <a href="#home" className="flex items-center gap-3">
       <span
         className={`flex h-11 w-11 items-center justify-center rounded-xl font-serif text-lg font-bold ${
-          dark ? 'bg-wine-700 text-gold-500' : 'bg-cream text-wine-700'
+          dark ? 'bg-wine-700 text-gold-500' : 'bg-wine-700/90 text-gold-400'
         }`}
       >
         DNA
@@ -25,7 +25,7 @@ function Logo({ dark = false }) {
             dark ? 'text-wine-700' : 'text-gold-400'
           }`}
         >
-          & Investment
+          &amp; Investment
         </span>
       </span>
     </a>
@@ -61,6 +61,7 @@ export default function Header() {
       <div className="container-page flex h-20 items-center justify-between">
         <Logo dark={scrolled || open} />
 
+        {/* Desktop nav */}
         <nav className="hidden items-center gap-6 lg:flex xl:gap-8">
           {navLinks.map((link) => (
             <a
@@ -78,6 +79,7 @@ export default function Header() {
           </a>
         </nav>
 
+        {/* Hamburger */}
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
@@ -93,10 +95,10 @@ export default function Header() {
         </button>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile dropdown */}
       <div
         className={`overflow-hidden border-t border-ink/10 bg-cream transition-[max-height] duration-300 lg:hidden ${
-          open ? 'max-h-[28rem]' : 'max-h-0'
+          open ? 'max-h-[36rem]' : 'max-h-0'
         }`}
       >
         <nav className="container-page flex flex-col gap-1 py-4">
