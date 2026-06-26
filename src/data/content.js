@@ -147,8 +147,9 @@ export const team = [
     name: 'Dhammendra Holkar',
     role: 'Founder & CEO',
     bio: 'Founder & CEO of DNA Infra & Investment. With expertise in property development, project finance and investment planning, Dhammendra helps individuals and businesses achieve their real estate goals through transparent, reliable and customer-focused solutions.',
-    image: '/founder.jpeg',
+    image: '/founder.png',
     objectPosition: 'center 20%',
+    skills: ['Property Development', 'Project Finance', 'Investment Planning'],
   },
   {
     name: 'Vijay Malviya',
@@ -156,6 +157,7 @@ export const team = [
     bio: 'Co-Founder of DNA Infra & Investment. With a strong understanding of the real estate and investment sector, Vijay drives strategic planning, business development and client-focused leadership — committed to delivering transparent, reliable investment opportunities.',
     image: '/cofunder.png',
     objectPosition: 'center top',
+    skills: ['Strategic Planning', 'Business Development', 'Client Leadership'],
   },
 ]
 

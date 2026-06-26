@@ -1,18 +1,13 @@
 import { motion } from 'framer-motion'
-import { team } from '../data/content'
+import { team } from '../data/content' 
 import Icon from './Icon'
-
-const highlights = [
-  ['Property Development', 'Project Finance', 'Investment Planning'],
-  ['Strategic Planning', 'Business Development', 'Client Leadership'],
-]
 
 export default function Team() {
   return (
-    <section id="team" className="bg-wine-900 text-cream">
-
+    <section id="team" className="bg-[#5D2335] text-white">
+      
       {/* Header */}
-      <div className="container-page py-16 pb-0 sm:py-24 sm:pb-0 lg:py-28 lg:pb-0">
+      <div className="container-page pt-16 pb-8 sm:pt-24 sm:pb-10 lg:pt-28 lg:pb-12">
         <motion.div
           className="mx-auto max-w-2xl text-center"
           initial={{ opacity: 0, y: 30 }}
@@ -20,122 +15,83 @@ export default function Team() {
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6 }}
         >
-          <span className="section-eyebrow text-gold-400">
-            <span className="h-px w-8 bg-gold-400" />
-            Our team
-            <span className="h-px w-8 bg-gold-400" />
-          </span>
-          <h2 className="mt-4 font-serif text-2xl font-bold sm:text-3xl lg:text-4xl">
+          <h2 className="mt-4 font-serif text-3xl font-bold sm:text-4xl">
             Meet the visionaries behind DNA
           </h2>
-          <p className="mt-3 text-sm text-cream/70 sm:mt-4 sm:text-base">
+
+          <p className="mt-3 text-base text-white/80 sm:mt-4">
             Driven by experience, integrity and a passion for building, our
             founders lead every project with a long-term commitment to clients.
           </p>
         </motion.div>
       </div>
 
-      {/* Split sections — one per founder */}
-      {team.map((member, i) => {
-        const imageLeft = i % 2 === 0
-        return (
-          <div key={member.name} className="mt-16 sm:mt-20 lg:mt-24">
-            <div className={`flex flex-col lg:flex-row ${imageLeft ? '' : 'lg:flex-row-reverse'}`}>
-
-              {/* Photo side */}
-              <motion.div
-                className="relative w-full lg:w-1/2"
-                initial={{ opacity: 0, x: imageLeft ? -60 : 60 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-              >
-                <div className="relative h-[420px] overflow-hidden sm:h-[520px] lg:h-[640px]">
-                  <motion.img
-                    src={member.image}
-                    alt={member.name}
-                    className="h-full w-full object-cover"
-                    style={{ objectPosition: member.objectPosition }}
-                    initial={{ scale: 1.08 }}
-                    whileInView={{ scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 1.2, ease: 'easeOut' }}
-                  />
-                  {/* Overlay gradient toward text side */}
-                  <div
-                    className={`absolute inset-0 ${
-                      imageLeft
-                        ? 'bg-gradient-to-r from-transparent via-transparent to-wine-900/60'
-                        : 'bg-gradient-to-l from-transparent via-transparent to-wine-900/60'
-                    } hidden lg:block`}
-                  />
-                  {/* Bottom gradient on mobile */}
-                  <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-wine-900 to-transparent lg:hidden" />
-                </div>
-              </motion.div>
-
-              {/* Text side */}
-              <motion.div
-                className="flex w-full flex-col justify-center px-6 py-10 sm:px-10 sm:py-14 lg:w-1/2 lg:px-16 lg:py-20"
-                initial={{ opacity: 0, x: imageLeft ? 60 : -60 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.8, delay: 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
-              >
-                {/* Role */}
-                <p className="text-[11px] font-bold uppercase tracking-[0.25em] text-gold-400">
-                  {member.role}
-                </p>
-
-                {/* Name */}
-                <h3 className="mt-2 font-serif text-3xl font-bold text-cream sm:text-4xl lg:text-5xl">
-                  {member.name}
-                </h3>
-
-                {/* Divider */}
-                <span className="mt-5 block h-px w-12 bg-gold-400/60" />
-
-                {/* Bio */}
-                <p className="mt-5 max-w-md text-sm leading-relaxed text-cream/70 sm:text-base">
-                  {member.bio}
-                </p>
-
-                {/* Tag pills */}
-                <div className="mt-6 flex flex-wrap gap-2">
-                  {highlights[i].map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full border border-gold-400/30 px-3 py-1 text-xs font-medium text-gold-400/80"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                {/* CTA */}
-                <a
-                  href="#contact"
-                  className="mt-8 inline-flex w-max items-center gap-2 text-sm font-semibold text-cream/60 transition hover:text-gold-400"
-                >
-                  Get in touch
-                  <Icon name="arrow" className="h-4 w-4" />
-                </a>
-              </motion.div>
-
-            </div>
-
-            {/* Divider between members */}
-            {i < team.length - 1 && (
-              <div className="container-page">
-                <div className="h-px bg-cream/8" />
+      {/* Team Cards Container */}
+      <div className="container-page pt-0 pb-16 sm:pb-24 lg:pb-28">
+        {/* Changed back to flex, centered, with a controlled gap and max-width so they don't drift too far apart */}
+        <div className="mx-auto flex max-w-4xl flex-wrap justify-center gap-8 lg:gap-12">
+          {team.map((member, i) => (
+            <motion.div
+              key={member.name}
+              // Reduced max-width to 290px and padding to p-5 for a tighter, cleaner card
+              className="group flex w-full max-w-[290px] flex-col items-center rounded-2xl bg-[#712A42] p-5 text-center transition-all hover:bg-[#80314C]"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+            >
+              {/* Image Container - reduced bottom margin */}
+              <div className="relative mb-4 w-full overflow-hidden rounded-xl aspect-[4/3]">
+                <motion.img
+                  src={member.image}
+                  alt={member.name}
+                  className="h-full w-full object-cover"
+                  style={{ objectPosition: member.objectPosition }}
+                  initial={{ scale: 1 }}
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.4 }}
+                />
               </div>
-            )}
-          </div>
-        )
-      })}
 
-      {/* Bottom padding */}
-      <div className="pb-16 sm:pb-24 lg:pb-28" />
+              {/* Role */}
+              <p className="mb-1.5 text-[10px] font-bold uppercase tracking-[0.2em] text-[#D6A75E]">
+                {member.role}
+              </p>
+
+              {/* Name */}
+              <h3 className="font-serif text-[22px] font-bold text-white">
+                {member.name}
+              </h3>
+
+              {/* Bio */}
+              <p className="mt-3 line-clamp-3 text-xs leading-relaxed text-white/70">
+                {member.bio}
+              </p>
+
+              {/* Skills */}
+              <div className="mt-4 flex flex-wrap justify-center gap-2">
+                {member.skills.map((skill) => (
+                  <span
+                    key={skill}
+                    className="inline-block rounded-full border border-[#D6A75E] px-2.5 py-0.5 text-[10px] font-medium text-[#D6A75E]"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+
+              {/* CTA */}
+              <a
+                href="#contact"
+                className="mt-4 inline-flex items-center gap-1.5 text-[11px] font-semibold text-white/70 transition-colors hover:text-[#D6A75E]"
+              >
+                Get in touch
+                <Icon name="arrow" className="h-3 w-3" />
+              </a>
+            </motion.div>
+          ))}
+        </div>
+      </div>
     </section>
   )
 }
